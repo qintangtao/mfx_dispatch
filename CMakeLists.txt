@@ -36,6 +36,7 @@ if (CMAKE_SYSTEM_NAME MATCHES "Windows")
     src/mfx_critical_section.cpp
     src/mfx_dxva2_device.cpp
     src/mfx_library_iterator.cpp
+    src/mfx_driver_store_loader.cpp
     src/mfx_load_dll.cpp
     src/mfx_load_plugin.cpp
     src/mfx_plugin_hive.cpp
