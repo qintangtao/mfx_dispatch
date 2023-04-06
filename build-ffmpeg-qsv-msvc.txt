@@ -1,0 +1,14 @@
+如果使用msys2继承vs编译：
+
+--enable-libmfx
+需要注意修复ffmpeg的configure
+
+更改前：
+enabled libmfx            && { check_pkg_config libmfx libmfx "mfx/mfxvideo.h" MFXInit ||
+                               { require libmfx "mfx/mfxvideo.h" MFXInit "-llibmfx $advapi32_extralibs" && warn "using libmfx without pkg-config"; } }
+
+需要加 Ole32.lib
+
+更改后：
+enabled libmfx            && { check_pkg_config libmfx libmfx "mfx/mfxvideo.h" MFXInit ||
+                               { require libmfx "mfx/mfxvideo.h" MFXInit "-llibmfx $advapi32_extralibs Ole32.lib" && warn "using libmfx without pkg-config"; } }
